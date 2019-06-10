@@ -4,10 +4,10 @@ import { StyleSheet, TextInput } from 'react-native';
 import { inputPlaceholder } from '../utils/Colors';
 
 const Input = ({ inputValue, onChangeText, onDoneAddItem }) => (
-	<TextInput
+	<TextInput // has built in props that can be altered
 		style={styles.input}
 		value={inputValue}
-		onChangeText={onChangeText}
+		onChangeText={onChangeText} // onChangeText is a method passed down from Main.js
 		placeholder="Type here to add note."
 		placeholderTextColor={inputPlaceholder}
 		multiline={true}

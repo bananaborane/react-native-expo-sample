@@ -6,7 +6,7 @@ import { lighterWhite } from '../utils/Colors';
 
 const Button = ({ deleteAllItems }) => (
 	<TouchableOpacity onPress={deleteAllItems}>
-		<MaterialIcons name="delete-sweep" size={24} color={lighterWhite} />
+		<MaterialIcons name="delete-sweep" size={50} color={lighterWhite} />
 	</TouchableOpacity>
 );
 

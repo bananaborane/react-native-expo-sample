@@ -8,7 +8,8 @@ import {
 	AsyncStorage
 } from 'react-native';
 import { LinearGradient } from 'expo';
-import uuid from 'uuid/v1';
+
+import uuid from 'uuid/v1'; // generates a unique id everytime
 
 import { primaryGradientArray } from './utils/Colors';
 import Header from './components/Header';
@@ -17,7 +18,7 @@ import Input from './components/Input';
 import List from './components/List';
 import Button from './components/Button';
 
-const headerTitle = 'Todo';
+const headerTitle = 'DISMYTODOAPP';
 
 export default class Main extends React.Component {
 	state = {
@@ -39,7 +40,7 @@ export default class Main extends React.Component {
 
 	loadingItems = async () => {
 		try {
-			const allItems = await AsyncStorage.getItem('Todos');
+			const allItems = await AsyncStorage.getItem('Todos'); // global storage (may not need redux?)
 			this.setState({
 				loadingItems: true,
 				allItems: JSON.parse(allItems) || {}
@@ -142,16 +143,19 @@ export default class Main extends React.Component {
 		return (
 			<LinearGradient colors={primaryGradientArray} style={styles.container}>
 				<StatusBar barStyle="light-content" />
+        {/* StatusBar is the bar up top, barStyle changes text color */}
 				<View style={styles.centered}>
 					<Header title={headerTitle} />
 				</View>
 				<View style={styles.inputContainer}>
 					<SubTitle subtitle={"What's Next?"} />
+
 					<Input
 						inputValue={inputValue}
 						onChangeText={this.newInputValue}
 						onDoneAddItem={this.onDoneAddItem}
 					/>
+
 				</View>
 				<View style={styles.list}>
 					<View style={styles.column}>
@@ -176,7 +180,7 @@ export default class Main extends React.Component {
 								))}
 						</ScrollView>
 					) : (
-						<ActivityIndicator size="large" color="white" />
+						<ActivityIndicator size="large" color="white" /> // shows that app is loading
 					)}
 				</View>
 			</LinearGradient>
@@ -184,6 +188,7 @@ export default class Main extends React.Component {
 	}
 }
 
+// styles are in the same file
 const styles = StyleSheet.create({
 	container: {
 		flex: 1

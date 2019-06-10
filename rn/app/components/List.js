@@ -35,7 +35,8 @@ class List extends Component {
 		return (
 			<View style={styles.container}>
 				<View style={styles.column}>
-					<TouchableOpacity onPress={this.onToggleCircle}>
+					<TouchableOpacity onPress={this.onToggleCircle}> 
+                    {/* TouchableOpacity is button feedback to touch */}
 						<View
 							style={[
 								styles.circle,
